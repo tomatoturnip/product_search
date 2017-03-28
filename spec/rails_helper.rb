@@ -29,6 +29,8 @@ require "webmock/rspec"
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  WebMock.disable_net_connect!(allow_localhost: true)
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
