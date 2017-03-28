@@ -42,6 +42,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "dotenv-rails"
+  gem "webmock"
 end
 
 group :development do
