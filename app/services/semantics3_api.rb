@@ -3,9 +3,9 @@ require "semantics3_api"
 class Semantics3Api
   attr_reader :sem3, :products
 
-  API_KEY        = ENV["SEMANTICS3_API_KEY"]
-  API_SECRET     = ENV["SEMANTICS3_SECRET_KEY"]
-  SEARCH = "search"
+  API_KEY        ||= ENV["SEMANTICS3_API_KEY"]
+  API_SECRET     ||= ENV["SEMANTICS3_SECRET_KEY"]
+  SEARCH         ||= "search"
 
   def initialize
     @sem3 = Semantics3::Products.new(API_KEY, API_SECRET)
