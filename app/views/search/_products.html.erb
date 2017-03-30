@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Brand</th>
+    <th>Price</th>
+    <th>Color</th>
+    <th>Manufacturer</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= product.brand %></td>
+        <td><%= product.price %></td>
+        <td><%= product.color %></td>
+        <td><%= product.manufacturer %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @products %>

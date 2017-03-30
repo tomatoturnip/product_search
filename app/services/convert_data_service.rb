@@ -11,13 +11,15 @@ class ConvertDataService
     products = []
 
     results_count = data["results_count"]
+    total_results_count = data["total_results_count"] || "0"
     for i in 0..(results_count - 1)
       record = data["results"][i]
       product = OpenStruct.new(
           price: record["price"],
           manufacturer: record["manufacturer"],
           color: record["color"],
-          brand: record["brand"]
+          brand: record["brand"],
+          total_results_count: total_results_count
       )
 
       products << product

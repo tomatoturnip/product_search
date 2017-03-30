@@ -6,21 +6,26 @@ class Semantics3Api
   API_KEY        ||= ENV["SEMANTICS3_API_KEY"]
   API_SECRET     ||= ENV["SEMANTICS3_SECRET_KEY"]
   SEARCH         ||= "search"
-  EXPIRATION_POLICY ||= 12.hours
+  OFFSET         ||= "offset"
+  EXPIRATION_POLICY ||= 1.minute
 
   def initialize
     @sem3 = Semantics3::Products.new(API_KEY, API_SECRET)
   end
 
-  def build_request(search_term)
-    sem3.products_field(SEARCH, search_term)
+  def build_request(params)
+    sem3.products_field(SEARCH, params[:query])
+    sem3.products_field(OFFSET, calculate_offset(params))
   end
 
   def run_request
     @products = sem3.get_products
   end
 
-  def print_results
-    products
+  private
+
+  def calculate_offset(params)
+    offset = PaginationService.new(params).get_offset
+    offset
   end
 end

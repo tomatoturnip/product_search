@@ -11,5 +11,6 @@ describe ConvertDataService do
     expect(converted_data.first.manufacturer).to eq("Apple")
     expect(converted_data.first.color).to eq("Gold")
     expect(converted_data.first.brand).to eq("Iphone")
+    expect(converted_data.first.total_results_count).to eq(100000)
   end
 end

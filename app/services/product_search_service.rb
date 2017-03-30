@@ -5,9 +5,8 @@ class ProductSearchService
     @product_service = product_service
   end
 
-  def get_products(search_term)
-    product_service.build_request(search_term)
+  def get_products(params)
+    product_service.build_request(params)
     product_service.run_request
-    product_service.print_results
   end
 end

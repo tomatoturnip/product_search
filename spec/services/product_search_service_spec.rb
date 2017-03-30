@@ -10,8 +10,8 @@ describe ProductSearchService do
   end
 
   it "returns products from third-party API based on a search term" do
-    query = double
-    products = product_service.get_products(query)
+    params = { query: "foo" }
+    products = product_service.get_products(params)
 
     expect(products["results"].count).to eq(10)
   end
