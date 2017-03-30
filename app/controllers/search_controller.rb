@@ -3,7 +3,9 @@ class SearchController < ApplicationController
     @products = [] if product_params.nil?
 
     if product_params[:query]
-      fetch_products
+      @products = CacheApiResponseService.cache_response(product_params[:query], Semantics3Api::EXPIRATION_POLICY) do
+        fetch_products
+      end
     end
   end
 
@@ -13,7 +15,7 @@ class SearchController < ApplicationController
     api = Semantics3Api.new
     service = ProductSearchService.new(api)
     raw_data = service.get_products(params[:query])
-    @products = ConvertDataService.new(raw_data).convert
+    ConvertDataService.new(raw_data).convert
   end
 
   def product_params
