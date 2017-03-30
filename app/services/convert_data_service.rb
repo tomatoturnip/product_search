@@ -11,6 +11,8 @@ class ConvertDataService
     products = []
 
     results_count = data["results_count"]
+    return products if results_count == 0
+
     total_results_count = data["total_results_count"] || "0"
     for i in 0..(results_count - 1)
       record = data["results"][i]

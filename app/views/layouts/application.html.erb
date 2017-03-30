@@ -9,6 +9,21 @@
   </head>
 
   <body>
+  <div class="container">
+    <br />
+    <h1>Product Search</h1>
+    <br />
+
+    <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key.to_sym) %> alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= value %>
+        </div>
+    <% end %>
+
     <%= yield %>
+  </div>
   </body>
 </html>
