@@ -4,9 +4,8 @@ class SearchController < ApplicationController
 
     if product_params[:query]
       product_params[:query].squish!
-      products = CacheApiResponseService.cache_response(product_params, Semantics3Api::EXPIRATION_POLICY) do
-        fetch_products
-      end
+
+      products = CacheApiRequestJob.new.perform(product_params)
 
       return show_error_message_if_no_products if products.count < 1
       @products = Kaminari.paginate_array(products, total_count: products.first.total_results_count).page(product_params[:page]).per(10)
@@ -17,13 +16,6 @@ class SearchController < ApplicationController
 
   def show_error_message_if_no_products
     flash[:error] = "No products found"
-  end
-
-  def fetch_products
-    api = Semantics3Api.new
-    service = ProductSearchService.new(api)
-    raw_data = service.get_products(product_params)
-    ConvertDataService.new(raw_data).convert
   end
 
   def product_params

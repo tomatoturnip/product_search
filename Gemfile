@@ -60,3 +60,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "bootstrap", "~> 4.0.0.alpha6"
 gem "semantics3"
 gem "kaminari"
+gem "sucker_punch", "~> 2.0"
