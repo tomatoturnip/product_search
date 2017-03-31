@@ -1,9 +1,11 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>Brand</th>
+    <th></th>
     <th>Price</th>
+    <th>Brand</th>
     <th>Color</th>
+    <th>Description</th>
     <th>Manufacturer</th>
   </tr>
   </thead>
@@ -11,9 +13,11 @@
 
   <% @products.each do |product| %>
       <tr>
+        <td><%= image_tag(product.images[0] || "default_image.jpg", size: "100x100") %></td>
+        <td><%= number_to_currency(product.price) %></td>
         <td><%= product.brand %></td>
-        <td><%= product.price %></td>
         <td><%= product.color %></td>
+        <td><%= product.description %></td>
         <td><%= product.manufacturer %></td>
       </tr>
   <% end %>

@@ -17,10 +17,13 @@ class ConvertDataService
     for i in 0..(results_count - 1)
       record = data["results"][i]
       product = OpenStruct.new(
+          id: record["sem3_id"],
           price: record["price"],
           manufacturer: record["manufacturer"],
           color: record["color"],
           brand: record["brand"],
+          images: record["images"],
+          description: record["description"],
           total_results_count: total_results_count
       )
 

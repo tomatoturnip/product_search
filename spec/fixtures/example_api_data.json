@@ -34,9 +34,10 @@
       "updated_at": 1487343686,
       "color": "Gold",
       "length": "157.99",
-      "images_total": 1,
+      "images_total": 2,
       "images": [
-        "http://sem3-idn.s3-website-us-east-1.amazonaws.com/04a29350c86afe88b40fd34dc440e0d9,0.jpg"
+        "http://sem3-idn.s3-website-us-east-1.amazonaws.com/04a29350c86afe88b40fd34dc440e0d9,0.jpg",
+        "http://sem3-idn.s3-website-us-east-1.amazonaws.com/79f663b839dc2e884a7815e5abf4dd3d,0.jpg"
       ],
       "created_at": 1472601925,
       "category": "Unlocked Phones",
