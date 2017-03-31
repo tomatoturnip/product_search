@@ -1,24 +1,45 @@
 # README
+Product search example using Semantics3 API. Search for any product and get back a list of product results.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+Requirements are:
+* Ruby 2.4
+* Rails 5
+* Postgres
+* Puma server
 
-* Ruby version
+External service credentials:
+For API credentials, create an account with Semantics3.
+Set up API keys in .env file for api key and secret.
 
-* System dependencies
+Example:
+```ruby
+#.env
+SEMANTICS3_API_KEY=foo_key
+SEMANTICS3_SECRET_KEY=foo_secret
+```
 
-* Configuration
+Bundle dependencies:
+```git
+$ bundle
+```
 
-* Database creation
+## Run application
+Set up database
+```git
+rake db:setup
+```
+Run rails server
+```git
+rails server
+```
 
-* Database initialization
+### Use product search 
+To search for a product,
+visit http://localhost:3000/search
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Run unit tests
+```git
+bundle exec rake
+```
