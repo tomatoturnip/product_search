@@ -7,7 +7,7 @@ class Semantics3Api
   API_SECRET     ||= ENV["SEMANTICS3_SECRET_KEY"]
   SEARCH         ||= "search"
   OFFSET         ||= "offset"
-  EXPIRATION_POLICY ||= 1.minute
+  EXPIRATION_POLICY ||= 12.hours
 
   def initialize
     @sem3 = Semantics3::Products.new(API_KEY, API_SECRET)
